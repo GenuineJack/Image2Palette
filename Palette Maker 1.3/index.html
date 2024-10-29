@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="card">
+                <div class="logo-container">
+                    <img src="https://images.squarespace-cdn.com/content/v1/658488e71ebc22517acdad54/d971cfa2-73cf-4357-bb0d-a50098b2b7df/FINE-ART-BC-LOGO.jpg" 
+                         alt="Base Colors Art" 
+                         id="logo" 
+                         class="logo">
+                </div>
+
+                <div class="instructions">
+                    <h1>Create Your Custom Color Palette</h1>
+                    <ol>
+                        <li><span class="step-number">1</span>Upload your image</li>
+                        <li><span class="step-number">2</span>A custom palette will be generated automatically</li>
+                        <li><span class="step-number">3</span>Click any HEX code to copy it</li>
+                        <li><span class="step-number">4</span>Shuffle the colors until you find a palette you like</li>
+                        <li><span class="step-number">5</span>Save the image with the color palette</li>
+                    </ol>
+                </div>
+
+                <div class="upload-container">
+                    <label for="image-upload" class="upload-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Choose an image</span>
+                    </label>
+                    <input type="file" id="image-upload" accept="image/*" class="file-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="preview-container card">
+                <img id="image-preview" alt="Image Preview" style="display: none;">
+            </div>
+
+            <div id="color-palette" class="palette-container card"></div>
+
+            <div id="result" class="button-container" style="display: none;">
+                <button id="shuffle-colors" class="btn primary">
+                    <i class="fas fa-random"></i>
+                    Shuffle Colors
+                </button>
+                <button id="save-image" class="btn secondary">
+                    <i class="fas fa-download"></i>
+                    Save Image
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden canvas for image saving -->
+    <canvas id="final-canvas" style="display: none;"></canvas>
+
+    <!-- Toast notification for copy feedback -->
+    <div id="toast" class="toast" style="display: none;">
+        <span id="toast-message"></span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
